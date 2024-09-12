@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <title>
+        Add Mess Cancellation
+    </title>
+    <style>
+        body {
+            background-image: url('/img/college.jpg'); /* Replace with the actual path to your background image */
+            background-size: cover; /* This will cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Fixed background */
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
+    <!-- Nucleo Icons -->
+    <link href="/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="/css/nucleo-svg.css" rel="stylesheet"/>
+    <!-- Font Awesome Icons -->
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/css/material-dashboard.css?v=3.0.4" rel="stylesheet"/>
+</head>
+<div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+        <div class="col-12">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                <div class="container-fluid ps-2 pe-0">
+                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/dashboard">
+                        HostelHub
+                    </a>
+                    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                            aria-label="Toggle navigation">
+<span class="navbar-toggler-icon mt-2">
+<span class="navbar-toggler-bar bar1"></span>
+<span class="navbar-toggler-bar bar2"></span>
+<span class="navbar-toggler-bar bar3"></span>
+</span>
+                    </button>
+                    <!--					<div class="collapse navbar-collapse" id="navigation">`-->
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
+                               href="/dashboard">
+                                <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-2" href="/complaints">
+                                <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                                Complaints
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-2" href="/notices">
+                                <i class="fas fa-pager opacity-6 text-dark me-1"></i>
+                                Notice
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mx-auto">
+                    </ul>
+                    <ul class="navbar-nav d-lg-flex d-none">
+                        <li class="nav-item">
+                            <a href="/logout" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </div>
+    </div>
+</div>
+<body class="bg-primary">
+<main class="main-content  mt-0">
+    <div class="page-header align-items-start min-vh-100">
+        <span class="mask bg-gradient-dark opacity-6"></span>
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                    <div class="card z-index-0 fadeIn3 fadeInBottom">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                                <h4 class="text-white font-weight-normal text-center mt-2 mb-0">Add your
+                                    cancellation</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/mymess}" method="POST">
+                                <div class="form-group">
+                                    <input type="hidden" th:field="${hostel.hostelId}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" th:field="${mess.hostelRegistrationId}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" th:field="${mess.rollNo}"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                        Date of Cancellation:
+                                        <input
+                                                type="date"
+                                                name="date"
+                                                th:field="*{mess.date}"
+                                                placeholder="Enter Mess cancellation Date"
+                                                th:attr="min=${#calendars.format(mindate.getTime(), 'yyyy-MM-dd')}, max = ${#calendars.format(maxdate.getTime(), 'yyyy-MM-dd')}"
+                                        />
+                                    </label>
+                                </div>
+                                <div class="text-center">
+									<button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+										Submit
+									</button>
+								</div>
+                            </form>
+
+                        </div>
+
+
+                        <!--                        <div class="card-body">-->
+
+                        <!--                            <form role="form" class="text-start" th:action="@{/complaints}" method="post"-->
+                        <!--                                  th:object="${complaint}">-->
+
+                        <!--                                <div class="input-group input-group-outline mb-3">-->
+                        <!--                                    <label class="form-label">Complaint</label>-->
+                        <!--                                    <input th:field="*{description}" type="text" name="description" class="form-control"-->
+                        <!--                                           required maxlength="1000">-->
+                        <!--                                </div>-->
+                        <!--                                <div class="text-center">-->
+                        <!--                                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">-->
+                        <!--                                        Submit-->
+                        <!--                                    </button>-->
+                        <!--                                </div>-->
+                        <!--                            </form>-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer position-absolute bottom-2 py-2 w-100">
+            <div class="container">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-12 col-md-6 my-auto">
+                        <div class="copyright text-center text-sm text-white text-lg-start">
+                            HostelHub © IIT BHU Varanasi
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</main>
+<!--   Core JS Files   -->
+<script src="/js/core/popper.min.js"></script>
+<script src="/js/core/bootstrap.min.js"></script>
+<script src="/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="/js/material-dashboard.min.js?v=3.1.0"></script>
+
+</body>
+</html>

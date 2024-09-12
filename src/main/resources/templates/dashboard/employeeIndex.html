@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/png" href="/img/favicon.png">
+	<title>
+		Dashboard
+	</title>
+	<style>
+		body {
+			background-image: url('/img/bg-smart-home-2.jpg'); /* Replace with the actual path to your background image */
+			background-size: cover; /* This will cover the entire viewport */
+			background-position: center; /* Center the image */
+			background-attachment: fixed; /* Fixed background */
+		}
+	</style>
+	<link href="/css/nucleo-icons.css" rel="stylesheet" />
+	<link href="/css/nucleo-svg.css" rel="stylesheet" />
+	<link id="pagestyle" href="/css/material-dashboard.min.css?v=3.1.0" rel="stylesheet" />
+	<style>
+		.async-hide {
+			opacity: 0 !important
+		}
+	</style>
+</head>
+<body class="g-sidenav-show  bg-gray-200">
+
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+	<nav class="navbar bg-gradient-light navbar-main navbar-expand-lg px-2 mx-6 border-radius-xl" id="navbarBlur" data-scroll="true" style="margin-top: 15px">
+		<div class="container-fluid py-0 px-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+					<li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+				</ol>
+				<h6 class="font-weight-bolder mb-0">HostelHub</h6>
+
+			</nav>
+			<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+				<div class="ms-md-auto pe-md-3 d-flex align-items-center">
+					<div>
+						Hostel Management System - DBMS
+					</div>
+				</div>
+				<ul class="navbar-nav  justify-content-end">
+					<li class="nav-item d-flex align-items-center">
+						<div>
+							<a th:href = "@{/aboutUs}" class="btn btn-sm mb-0 me-2 bg-gradient-dark"> About Us</a>
+						</div>
+					</li>
+					<li class="nav-item d-flex align-items-center">
+						<div>
+							<a th:href = "@{/contactUs}" class="btn btn-sm mb-0 me-2 bg-gradient-dark"> Contact Us</a>
+						</div>
+					</li>
+					<li class="nav-item d-flex align-items-center">
+						<div>
+							<a th:href = "@{/logout}" class="btn btn-sm mb-0 me-1 bg-gradient-dark"> Log Out</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="row mt-4">
+		<div class="col-lg-4 col-md-6 mt-4 mb-4">
+
+		</div>
+		<div class="col-lg-4 col-md-6 mt-4 mb-4">
+			<div class="card z-index-2">
+				<div class="card-body">
+					<img src="/img/bg-smart-home-2.jpg" alt="Image Description" class="img-fluid" style="border-radius: 10px">
+
+					<h6 class="mb-0"><br>Welcome to HostelHub!</h6>
+					<p class="text-sm">(<span class="font-weight-bolder">Serving Students</span>) since 1919</p>
+					<hr class="dark horizontal">
+					Our dashboard features an intuitive and user-friendly interface, making it easy for you and your staff to navigate and perform tasks efficiently. Whether you're an administrator, a warden, or a resident, our system offers a tailored experience that suits your role and needs.
+
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 mt-4 mb-3">
+
+		</div>
+	</div>
+
+	<div class="container-fluid py-4">
+		<div class="row" >
+
+			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" th:if="${emu.jobType=='Notice'}">
+				<div class="card">
+					<div class="card-header p-3 pt-2">
+						<div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+
+						</div>
+						<div class="text-end pt-1">
+							<p class="text-sm mb-0 text-capitalize"></p>
+							<a class="btn-block" href="/notices">
+							<h4 class="mb-0">Notice Board</h4>
+							</a>
+						</div>
+					</div>
+					<hr class="dark horizontal my-0">
+					<div class="card-footer p-3">
+						<p class="mb-0"><span class="text-success text-sm font-weight-bolder">Stay informed  </span> about the latest updates, announcements, and important notices at our hostel.  Check regularly to ensure you don't miss out on anything that might affect your stay with us.</p>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" th:if="${emu.jobType=='Complaint'}">
+				<div class="card">
+					<div class="card-header p-3 pt-2">
+						<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+							<i class="material-icons opacity-10"></i>
+						</div>
+						<div class="text-end pt-1">
+							<p class="text-sm mb-0 text-capitalize"></p>
+							<a class="btn-block" href="/complaints">
+							<h4 class="mb-0">Complaints</h4>
+							</a>
+						</div>
+					</div>
+					<hr class="dark horizontal my-0">
+					<div class="card-footer p-3">
+						<p class="mb-0"><span class="text-success text-sm font-weight-bolder"> We value your feedback and concerns.</span> If you have any issues, suggestions, or complaints, please use the provided form to submit your feedback. We will work to address and resolve your concerns promptly.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6">
+
+				<div class="card">
+					<div class="card-header p-3 pt-2">
+						<div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+							<i class="material-icons opacity-10"></i>
+						</div>
+						<div class="text-end pt-1" >
+							<p class="text-sm mb-0 text-capitalize"></p>
+							<a class="btn-block" href="/myProfile">
+							<h4 class="mb-0">My Profile</h4> </a>
+						</div>
+					</div>
+					<hr class="dark horizontal my-0">
+					<div class="card-footer p-3">
+						<p class="mb-0"><span class="text-success text-sm font-weight-bolder">Welcome to your personal space at IIT BHU. </span> 'My Profile' is where you can manage and customize your account settings, update your personal information, and access exclusive features tailored to you.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6" th:if="${user.role=='employee'}">
+
+				<div class="card">
+					<div class="card-header p-3 pt-2">
+						<div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+							<i class="material-icons opacity-10"></i>
+						</div>
+						<div class="text-end pt-1" >
+							<p class="text-sm mb-0 text-capitalize"></p>
+							<a class="btn-block" href="/myJob">
+							<h4 class="mb-0">My Job</h4> </a>
+						</div>
+					</div>
+					<hr class="dark horizontal my-0">
+					<div class="card-footer p-3">
+						<p class="mb-0"><span class="text-success text-sm font-weight-bolder">Welcome to your personal space at IIT BHU. </span> 'My Profile' is where you can manage and customize your account settings, update your personal information, and access exclusive features tailored to you.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" th:if="${emu.jobType=='Mess'}" >
+				<div class="card">
+					<div class="card-header p-3 pt-2">
+						<div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+							<i class="material-icons opacity-10"></i>
+						</div>
+						<div class="text-end pt-1">
+							<p class="text-sm mb-0 text-capitalize"></p>
+							<a class="btn-block" href="/mess">
+								<h4 class="mb-0" >Mess Cancellations</h4>
+							</a>
+						</div>
+					</div>
+					<hr class="dark horizontal my-0">
+					<div class="card-footer p-3">
+						<p class="mb-0"><span class="text-success text-sm font-weight-bolder">Experience a world of flavors with every bite</span> Our dining area is not just a place to eat; it's a hub of social interaction and delicious cuisine. We take pride in offering a variety of delectable dishes to cater to different tastes. </p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div>
+		<footer class="footer py-4 ">
+			<div class="container-fluid ">
+				<div class="row align-items-center justify-content-lg-between">
+					<div class="col-lg-6 mb-lg-0 mb-4">
+						<div class="copyright text-center text-sm text-muted text-lg-start">
+							HostelHub © IIT BHU Varanasi <script>
+							document.write(new Date().getFullYear())
+						</script>
+						</div>
+				</div>
+			</div>
+			</div>
+		</footer>
+	</div>
+</main>
+
+<script src="/js/core/popper.min.js"></script>
+<script src="/js/core/bootstrap.min.js"></script>
+<script src="/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="/js/plugins/chartjs.min.js"></script>
+<script src="/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
+</html>
